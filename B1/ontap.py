@@ -52,11 +52,11 @@ print("Tong tu a den b", sum)
 # tinh tong so chia het cho 3
 
 # nhap danh sach duoi dang string
-nums = input("Nhap danh sach so: ") #1,2,3,4
+nums = input("Nhap danh sach so: ")  # 1,2,3,4
 # cat chuoi thanh danh sach
-nums = nums.split(",") # ["1", "2", "3", "4"]
+nums = nums.split(",")  # ["1", "2", "3", "4"]
 # chuyen doi du lieu cho cac phan tu trong danh sach nums
-# string => int 
+# string => int
 for i in range(len(nums)):
     nums[i] = int(nums[i])
 # => [1, 2, 3, 4]
@@ -64,9 +64,41 @@ for i in range(len(nums)):
 # tong cac phan tu chia het cho 3
 s = 0
 for i in range(len(nums)):
-    if nums[i] % 3 == 0: # kiem tra: neu phan tu chia het 3 => cong vao tong s
-        s+= nums[i]
+    if nums[i] % 3 == 0:  # kiem tra: neu phan tu chia het 3 => cong vao tong s
+        s += nums[i]
 print("Tong cac phan tu chia het cho 3:", s)
 
 # sum([i for i in nums if i %3 == 0])
 
+
+# 13/08 ------------------
+# Bai1: tong so chan trong danh sach so nguyen
+def tong_so_chan(nums):
+    sum = 0
+    for item in nums:
+        if item % 2 == 0:
+            sum += item
+    return sum
+
+
+# Bai2: xoa phan tu trung nhau trong danh sach
+def xoa_phan_tu_trung(lis):
+    for i in range(len(lis) - 1):
+        for j in range(i + 1, len(lis)):
+            if lis[i] == lis[j]:
+                lis.remove(lis[j])
+    return lis
+
+
+# Bai3: kiem tra chuoi doi xung
+def kiem_tra_chuoi_doi_xung(string):
+    return string[::-1] == string
+
+
+def kiem_tra_chuoi_doi_xung(string):
+    mid = int((len(string) - 1) / 2)
+    for i in range(mid + 1):
+        for j in range(mid + 1, len(string), -1):
+            if string[i] != string[j]:
+                return False
+    return True
